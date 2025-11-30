@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Scrapy
+.scrapy/
+*.log
+
+# 데이터 파일
+data/raw/*
+data/processed/*
+data/export/*
+data/shared/*
+!data/shared/.gitkeep
+
+# 설정 파일 (비밀정보 포함)
+config/config.yaml
+
+# 로그
+*.log
+logs/
+**/logs/*
+
+# 백업
+**/backups/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+

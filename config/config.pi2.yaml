@@ -1,0 +1,36 @@
+# Pi2 설정 파일
+# config/config.yaml로 복사하여 사용
+
+# 데이터 경로 설정
+data_paths:
+  base: "./data"
+  raw: "./data/raw"
+  processed: "./data/processed"
+  export: "./data/export"
+  shared: "./data/shared"
+
+# Pi 설정
+pi:
+  id: "pi2"
+  hostname: "raspberrypi2.local"
+  ip: "192.168.1.11"
+
+# Kafka 설정
+kafka:
+  bootstrap_servers: "192.168.1.10:9092"  # Kafka 브로커 주소 (실제 IP로 수정)
+  topics:
+    new_urls: "recall-new-urls"
+    parsed_recalls: "recall-parsed"
+    db_records: "recall-db-records"
+  consumer_groups:
+    pi2: "pi2-detail-parser"
+    pi3: "pi3-db-server"
+    pi4: "pi4-hadoop-loader"
+
+# 크롤링 설정
+crawling:
+  base_url: "https://www.car.go.kr"
+  delay: 2  # 요청 간 지연 시간 (초)
+  timeout: 30
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+

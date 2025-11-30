@@ -1,0 +1,19 @@
+# 공통 의존성
+scrapy>=2.11.0
+pymysql>=1.1.0
+sqlalchemy>=2.0.0
+pyyaml>=6.0
+python-dateutil>=2.8.2
+
+# Kafka
+kafka-python>=2.0.2
+
+# 데이터 처리
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 유틸리티
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+

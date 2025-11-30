@@ -1,0 +1,52 @@
+# Pi3 설정 파일
+# config/config.yaml로 복사하여 사용
+
+# 데이터 경로 설정
+data_paths:
+  base: "./data"
+  raw: "./data/raw"
+  processed: "./data/processed"
+  export: "./data/export"
+  shared: "./data/shared"
+
+# Pi 설정
+pi:
+  id: "pi3"
+  hostname: "raspberrypi3.local"
+  ip: "192.168.1.12"
+
+# Kafka 설정
+kafka:
+  bootstrap_servers: "192.168.1.10:9092"  # Kafka 브로커 주소 (실제 IP로 수정)
+  topics:
+    new_urls: "recall-new-urls"
+    parsed_recalls: "recall-parsed"
+    db_records: "recall-db-records"
+  consumer_groups:
+    pi2: "pi2-detail-parser"
+    pi3: "pi3-db-server"
+    pi4: "pi4-hadoop-loader"
+
+# 데이터베이스 설정
+database:
+  host: "localhost"
+  port: 3306
+  user: "recall_user"
+  password: "your_password_here"  # 실제 비밀번호로 수정
+  database: "recall_db"
+  table: "recall"
+
+# 하둡 설정 (Pi3에서 HDFS 적재 처리)
+hadoop:
+  hdfs_namenode: "hdfs://localhost:9000"
+  hdfs_path: "/recall_data"
+  hdfs_command: "hdfs"  # HDFS 명령어 (또는 hadoop)
+  export_interval_hours: 24  # 주기적 HDFS 적재 간격 (시간)
+
+# 크롤링 설정
+crawling:
+  base_url: "https://www.car.go.kr"
+  delay: 1
+  timeout: 30
+  user_agent: "Mozilla/5.0 (compatible; RecallBot/1.0)"
+
